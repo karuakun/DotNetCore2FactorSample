@@ -1,0 +1,14 @@
+﻿@page
+@model IdentitySample.WebApp.Pages.Page1Model
+@{
+}
+
+<p>認証後のページ</p>
+
+<div>
+    <p>ログイン中のユーザーは 「@Model.User.Identity?.Name」 </p>
+</div>
+
+<form method="post">
+    <input type="submit" value="ログアウト"/>
+</form>

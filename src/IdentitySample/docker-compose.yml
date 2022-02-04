@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  identitysample.webapp:
+    image: ${DOCKER_REGISTRY-}identitysamplewebapp
+    build:
+      context: .
+      dockerfile: IdentitySample.WebApp/Dockerfile

@@ -1,0 +1,27 @@
+﻿@page
+@model IdentitySample.WebApp.Pages.EnableTwoFactorModel
+@{
+}
+<div>
+    <form method="post">
+        <div style="text-align: center">
+            <p>@Model.Secrets</p>
+        </div>
+        <div style="width: 160px; padding: 15px; margin-left: auto; margin-right: auto">
+            <div id="qrCode"></div>
+            <div id="qrCodeData" data-url="@Model.AuthenticatorUri"></div>
+        </div>
+        <div>
+            <input asp-for="VerifyCode" autocomplete="off" />
+        </div>
+        <div>
+            <input type="submit" value="登録" />
+            <p>@Model.Message</p>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+<script type="text/javascript" src="~/lib/qrcode/qrcode.min.js"></script>
+<script type="text/javascript" src="~/js/qr.js"></script>
+}
