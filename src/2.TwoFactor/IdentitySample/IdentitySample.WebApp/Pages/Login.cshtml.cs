@@ -42,11 +42,13 @@ public class LoginModel : PageModel
                 return;
             }
         }
-        
+
         var claims = new List<Claim>
         {
-            new(ClaimTypes.NameIdentifier, user.UserName)
+            new(ClaimTypes.NameIdentifier, user.UserName),
+            new("amr", user.UseTwoFactor ? "mfa": "pwd")
         };
+
         var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
 
